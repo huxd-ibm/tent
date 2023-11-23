@@ -32,9 +32,4 @@ jobs:
           distro: ubuntu20.04
           run: |
             uname -a
-            echo ::set-output name=uname::$(uname -a)
-
-      - name: Get the output
-        # Echo the `uname` output parameter from the `runcmd` step
-        run: |
-          echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
+            echo "{uname}={$(uname -a)}" >> $GITHUB_OUTPUT
