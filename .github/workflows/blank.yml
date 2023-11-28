@@ -30,9 +30,10 @@ jobs:
         with:
           arch: s390x
           distro: ubuntu20.04
+          install: |
+            apt-get install -q -y build-essentials
           run: |
             uname -a
             echo "uname is $(uname -a)"
-            sudo apt install build-essentials
             gcc test.c -o test
             ./test
