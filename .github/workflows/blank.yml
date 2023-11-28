@@ -38,3 +38,4 @@ jobs:
             echo "uname is $(uname -a)"
             gcc test.c -o test
             ./test
+            file test
