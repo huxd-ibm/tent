@@ -31,7 +31,8 @@ jobs:
           arch: s390x
           distro: ubuntu20.04
           install: |
-            apt-get install -q -y build-essentials
+            apt-get update -q -y
+            apt-get install -q -y build-essential
           run: |
             uname -a
             echo "uname is $(uname -a)"
