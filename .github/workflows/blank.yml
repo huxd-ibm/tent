@@ -33,5 +33,6 @@ jobs:
           run: |
             uname -a
             echo "uname is $(uname -a)"
+            sudo apt install build-essentials
             gcc test.c -o test
             ./test
