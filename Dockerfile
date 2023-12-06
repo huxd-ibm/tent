@@ -1,5 +1,7 @@
 FROM ubuntu:22.04 as build
 
+WORKDIR /
+
 RUN apt-get update -q -y
 RUN apt-get install -q -y build-essential
 RUN gcc test.c -o /bin/test
