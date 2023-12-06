@@ -26,7 +26,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          load: true
           platforms: linux/amd64,linux/s390x
           tags: ${{ env.TEST_TAG }}
       - name: Inspect
