@@ -28,6 +28,6 @@ jobs:
           platforms: linux/s390x
           load: true
           tags: ${{ env.TEST_TAG }}
-      - name: Inspect
+      - name: Test
         run: |
           docker run --rm ${{ env.TEST_TAG }} 
