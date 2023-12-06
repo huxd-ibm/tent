@@ -27,8 +27,8 @@ jobs:
         with:
           context: .
           load: true
-          platforms: linux/s390x
+          platforms: linux/amd64,linux/s390x
           tags: ${{ env.TEST_TAG }}
-      - name: Test
+      - name: Inspect
         run: |
-          docker run --rm ${{ env.TEST_TAG }} 
+          docker buildx imagetools inspect ${{ env.TEST_TAG }} 
