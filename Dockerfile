@@ -4,6 +4,8 @@ WORKDIR /
 
 RUN apt-get update -q -y
 RUN apt-get install -q -y build-essential
+
+COPY test.c .
 RUN gcc test.c -o /bin/test
 
 FROM ubuntu:22.04
