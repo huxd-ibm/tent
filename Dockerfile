@@ -10,6 +10,6 @@ RUN --mount=type=bind,target=/src gcc test.c -o /bin/test
 FROM ubuntu:22.04
 
 COPY --from=build /bin/test /bin/test
-COPY --chmod=a+x test.sh /bin/test.sh
+COPY --chmod=777 test.sh /bin/test.sh
 
 CMD /bin/test.sh
