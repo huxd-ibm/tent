@@ -17,8 +17,4 @@ jobs:
       uses: docker/setup-qemu-action@v3
     - name: Test
       run: |
-        cd /proc/sys/fs/binfmt_misc
-        ls -l
-        cat cli
-        cat llvm-15-runtime.binfmt
-        cat python3.10
+        curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-s390x.tar.xz
