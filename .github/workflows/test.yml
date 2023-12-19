@@ -16,4 +16,6 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
     - name: Test
-      run: sudo cat /proc/sys/fs/binfmt_misc/register
+      run: |
+        cd /proc/sys/fs/binfmt_misc
+        sudo cat register
