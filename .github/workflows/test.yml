@@ -19,4 +19,6 @@ jobs:
       run: |
         cd /proc/sys/fs/binfmt_misc
         ls -l
-        cat qemu-s390x
+        cat cli
+        cat llvm-15-runtime.binfmt
+        cat python3.10
