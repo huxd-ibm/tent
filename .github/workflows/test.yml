@@ -18,4 +18,4 @@ jobs:
     - name: Test
       run: |
         cd /proc/sys/fs/binfmt_misc
-        sudo cat register
+        ls
