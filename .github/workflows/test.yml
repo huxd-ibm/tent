@@ -1,0 +1,19 @@
+name: Test CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+    - name: Test
+      run: docker run --rm s390x/alpine uname -a
