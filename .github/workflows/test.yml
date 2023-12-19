@@ -19,3 +19,4 @@ jobs:
       run: |
         cd /proc/sys/fs/binfmt_misc
         ls -l
+        cat qemu-s390x
