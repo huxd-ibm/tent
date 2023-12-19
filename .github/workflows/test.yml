@@ -18,3 +18,6 @@ jobs:
     - name: Test
       run: |
         curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-s390x.tar.xz
+        tar -xf node-v20.10.0-linux-s390x.tar.xz
+        cd node-v20.10.0-linux-s390x/bin
+        ./node -v
