@@ -14,6 +14,8 @@ jobs:
     container: s390x/alpine
 
     steps:
+    - name: checkout
+      uses: actions/checkout
     - name: Set up QEMU
       uses: ./github/actions/test-action
     - name: Test
