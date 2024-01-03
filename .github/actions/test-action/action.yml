@@ -1,0 +1,7 @@
+name: 'test action'
+description: 'test action'
+runs:
+  using: 'docker'
+  image: 'tonistiigi/binfmt'
+  args:
+    - '--install all'
