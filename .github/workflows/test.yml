@@ -11,13 +11,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: s390x/alpine
 
     steps:
     - name: checkout
       uses: actions/checkout@v3
     - name: Set up QEMU
-      uses: ./github/actions/test-action
+      uses: docker/setup-qemu-action@v3
     - name: Test
       run: |
         uname -a
