@@ -13,22 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
-    - name: Check
-      run: |
-        cd /proc/sys/fs/binfmt_misc
-        ls -l
-        cat qemu-s390x
-        cd /usr/bin
-        ls -l
-        sudo chmod +x /usr/bin/qemu-s390x
-        /usr/bin/qemu-s390x
     - name: Test
       run: |
         sudo apt-get update -q -y
-        sudo apt-get install -q -y crossbuild-essential-s390x
+        sudo apt-get install -q -y qemu-user qemu-user-static crossbuild-essential-s390x
+        qemu-s390x
         curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-s390x.tar.xz
         tar -xf node-v20.10.0-linux-s390x.tar.xz
         cd node-v20.10.0-linux-s390x/bin
-        /usr/bin/qemu-s390x
