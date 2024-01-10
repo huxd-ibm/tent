@@ -21,7 +21,7 @@ jobs:
         ls -l
         cat qemu-s390x
         cd /usr/bin
-        ls -l|grep qemu
+        ls -l
         sudo chmod +x /usr/bin/qemu-s390x
         /usr/bin/qemu-s390x
     - name: Test
