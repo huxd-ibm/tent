@@ -15,6 +15,11 @@ jobs:
     steps:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
+    - name: Check
+      run: |
+        cd /proc/sys/fs/binfmt_misc
+        ls -l
+        cat qemu-s390x
     - name: Test
       run: |
         sudo apt-get update -q -y
