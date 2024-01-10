@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout
-      uses: actions/checkout@v3
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
     - name: Test
       run: |
-        docker run --rm s390x/alpine uname -a
+        apt-get update -q -y
+        apt-get install -q -y crossbuild-essential-s390x
+        curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-s390x.tar.xz
+        tar -xf node-v20.10.0-linux-s390x.tar.xz
+        cd node-v20.10.0-linux-s390x/bin
+        ./node -v
