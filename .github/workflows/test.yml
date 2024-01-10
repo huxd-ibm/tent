@@ -20,7 +20,8 @@ jobs:
         cd /proc/sys/fs/binfmt_misc
         ls -l
         cat qemu-s390x
-        ls -l /usr/bin/ |grep qemu
+        cd /usr/bin
+        ls -l|grep qemu
         sudo chmod +x /usr/bin/qemu-s390x
         /usr/bin/qemu-s390x
     - name: Test
