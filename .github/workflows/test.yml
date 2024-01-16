@@ -20,8 +20,9 @@ jobs:
         sudo apt-get install -q -y qemu-user qemu-user-static crossbuild-essential-s390x
     - name: Cross compiling C program
       run: |
-        s390x-linux-gnu-gcc test.c -o test
+        s390x-linux-gnu-gcc test.c -o test -static
         file ./test
+        ./test
         qemu-s390x -L /usr/s390x-linux-gnu/ ./test
     - name: Run other s390x program
       run: |
