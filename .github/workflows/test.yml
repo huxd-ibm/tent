@@ -14,11 +14,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Test
+    - name: Install tools
       run: |
         sudo apt-get update -q -y
         sudo apt-get install -q -y qemu-user qemu-user-static crossbuild-essential-s390x
+    - name: Cross compiling C program
+      run: |
         s390x-linux-gnu-gcc test.c -o test
+        file ./test
+        ./test
+        qemu-s390x -L /usr/s390x-linux-gnu/ ./test
+    - name: Run other s390x program
+      run: |
         curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-s390x.tar.xz
         tar -xf node-v20.10.0-linux-s390x.tar.xz
         cd node-v20.10.0-linux-s390x/bin
