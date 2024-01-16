@@ -13,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
     - name: Test
       run: |
         sudo apt-get update -q -y
         sudo apt-get install -q -y qemu-user qemu-user-static crossbuild-essential-s390x
+        s390x-linux-gnu-gcc test.c -o test
         curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-s390x.tar.xz
         tar -xf node-v20.10.0-linux-s390x.tar.xz
         cd node-v20.10.0-linux-s390x/bin
