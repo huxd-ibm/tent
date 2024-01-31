@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build and run container
 
 on:
   push:
@@ -22,12 +22,15 @@ jobs:
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      - name: Build and export to Docker
+      - name: Build container for s390x
         uses: docker/build-push-action@v5
         with:
           platforms: linux/s390x
           load: true
           tags: ${{ env.TEST_TAG }}
-      - name: Test
+      - name: Run built s390x container image
         run: |
           docker run --rm ${{ env.TEST_TAG }} 
+      - name: Run other s390x container image
+        run: |
+          docker run --rm s390x/alpine uname -a
