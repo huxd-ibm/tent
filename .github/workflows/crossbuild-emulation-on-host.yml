@@ -1,4 +1,4 @@
-name: Run on host
+name: Cross build and emulation of s390x on host
 
 on:
   push:
